@@ -6,6 +6,8 @@ stat $REPO_ROOT/.boot-compiler-rt >/dev/null 2>/dev/null \
 mkdir -p $BUILD/compiler-rt-$LLVM_VER
 cd $BUILD/compiler-rt-$LLVM_VER
 cmake -G Ninja $SOURCES/llvm-$LLVM_VER/compiler-rt \
+	-DCMAKE_INSTALL_PREFIX=/usr \
+	-DCOMPILER_RT_INSTALL_PATH=/usr/lib/clang/$LLVM_VER \
 	-DCOMPILER_RT_DEFAULT_TARGET_ONLY=OFF \
 	-DCOMPILER_RT_INCLUDE_TESTS=OFF \
 	-DCOMPILER_RT_BUILD_SANITIZERS=OFF \
@@ -18,6 +20,8 @@ cmake -G Ninja $SOURCES/llvm-$LLVM_VER/compiler-rt \
 #	-DCOMPILER_RT_USE_BUILTINS_LIBRARY=ON \
 
 $NINJA
+
+DESTDIR=$CHROOT $NINJA install
 
 cd $REPO_ROOT
 touch .boot-compiler-rt
