@@ -1,0 +1,23 @@
+#!/bin/sh
+
+stat $REPO_ROOT/.boot-compiler-rt >/dev/null 2>/dev/null \
+&& exit 0
+
+mkdir -p $BUILD/compiler-rt-$LLVM_VER
+cd $BUILD/compiler-rt-$LLVM_VER
+cmake -G Ninja $SOURCES/llvm-$LLVM_VER/compiler-rt \
+	-DCOMPILER_RT_DEFAULT_TARGET_ONLY=OFF \
+	-DCOMPILER_RT_INCLUDE_TESTS=OFF \
+	-DCOMPILER_RT_BUILD_SANITIZERS=OFF \
+	-DCOMPILER_RT_BUILD_XRAY=OFF \
+	-DCOMPILER_RT_BUILD_MEMPROF=OFF \
+	-DCOMPILER_RT_INCLUDE_TESTS=OFF \
+	-DCOMPILER_RT_BUILD_LIBFUZZER=OFF
+
+
+#	-DCOMPILER_RT_USE_BUILTINS_LIBRARY=ON \
+
+$NINJA
+
+cd $REPO_ROOT
+touch .boot-compiler-rt
