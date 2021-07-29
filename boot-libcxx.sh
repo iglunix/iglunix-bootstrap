@@ -9,9 +9,9 @@ cd $BUILD/libcxx-$LLVM_VER
 
 cmake -G Ninja $SOURCES/llvm-$LLVM_VER/libcxx \
 -DCMAKE_C_COMPILER=clang \
--DCMAKE_C_FLAGS_INIT='--rtlib=compiler-rt --stdlib=libcxx --unwind=libunwind' \
+-DCMAKE_C_FLAGS_INIT='--rtlib=compiler-rt --stdlib=libc++' \
 -DCMAKE_CXX_COMPILER=clang++ \
--DCMAKE_CXX_FLAGS_INIT='--rtlib=compiler-rt --stdlib=libcxx --unwind=libunwind' \
+-DCMAKE_CXX_FLAGS_INIT='--rtlib=compiler-rt --stdlib=libc++ --unwind=libunwind' \
 -DCMAKE_INSTALL_PREFIX=/usr \
 -DCMAKE_SYSROOT=$CHROOT \
 -DLIBCXX_HAS_MUSL_LIBC=ON \

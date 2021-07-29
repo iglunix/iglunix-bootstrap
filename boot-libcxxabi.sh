@@ -9,9 +9,9 @@ cd $BUILD/libcxxabi-$LLVM_VER
 
 cmake -G Ninja $SOURCES/llvm-$LLVM_VER/libcxxabi \
 -DCMAKE_C_COMPILER=clang \
--DCMAKE_C_FLAGS_INIT='--rtlib=compiler-rt --stdlib=libcxx --unwind=libunwind' \
+-DCMAKE_C_FLAGS_INIT='--rtlib=compiler-rt' \
 -DCMAKE_CXX_COMPILER=clang++ \
--DCMAKE_CXX_FLAGS_INIT=--rtlib=compiler-rt \
+-DCMAKE_CXX_FLAGS_INIT='--rtlib=compiler-rt --stdlib=libc++ --unwind=libunwind' \
 -DCMAKE_INSTALL_PREFIX=/usr \
 -DCMAKE_SYSROOT=$CHROOT \
 -DLIBCXXABI_ENABLE_ASSERTIONS=ON \
