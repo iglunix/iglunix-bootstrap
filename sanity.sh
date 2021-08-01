@@ -12,6 +12,7 @@ clang++ sanity.cpp \
 --stdlib=libc++ \
 --rtlib=compiler-rt \
 -nostdinc \
+-nostdinc++ \
 -I$CHROOT/usr/include/c++/v1 \
 -I$CHROOT/usr/include/ \
 -I$CHROOT/usr/lib/clang/12.0.1/include \

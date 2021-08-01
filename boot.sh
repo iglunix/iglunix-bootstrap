@@ -13,6 +13,7 @@ mkdir -p $BUILD
 ./boot-unwind.sh
 ./boot-libcxxabi.sh
 ./boot-libcxx.sh
+./boot-tblgen.sh
 ./boot-clang.sh
 
 ./sanity.sh || exit 1

@@ -7,8 +7,10 @@ mkdir -p $BUILD/llvm-$LLVM_VER
 
 cd $BUILD/llvm-$LLVM_VER
 
-C_CXX_FLAGS="--unwindlib=libunwind -stdlib=libc++ --rtlib=compiler-rt -nostdinc -nostdinc++ -I$CHROOT/usr/include/c++/v1 -I$CHROOT/usr/include/ -I$CHROOT/usr/lib/clang/12.0.1/include"
-C_C_FLAGS="--unwindlib=libunwind -stdlib=libc++ --rtlib=compiler-rt -nostdinc -nostdinc++ -I$CHROOT/usr/include/ -I$CHROOT/usr/lib/clang/12.0.1/include"
+#C_CXX_FLAGS="--unwindlib=libunwind -stdlib=libc++ --rtlib=compiler-rt -nostdinc -nostdinc++ -I$CHROOT/usr/include/c++/v1 -I$CHROOT/usr/include/ -I$CHROOT/usr/lib/clang/12.0.1/include"
+
+C_CXX_FLAGS="--unwindlib=libunwind -stdlib=libc++ --rtlib=compiler-rt -nostdinc++ -isystem $CHROOT/usr/include/c++/v1 -fPIC -v"
+C_C_FLAGS="--unwindlib=libunwind -stdlib=libc++ --rtlib=compiler-rt -fPIC -v"
 
 cmake -G Ninja $SOURCES/llvm-$LLVM_VER/llvm \
 -DCMAKE_CROSSCOMPILING=True \
@@ -21,11 +23,13 @@ cmake -G Ninja $SOURCES/llvm-$LLVM_VER/llvm \
 -DCMAKE_BUILD_TYPE=Release \
 -DCMAKE_CXX_FLAGS_INIT="$C_CXX_FLAGS" \
 -DCMAKE_C_FLAGS_INIT="$C_C_FLAGS" \
+-DLLVM_TABLEGEN=$BUILD/tblgen-$LLVM_VER/bin/llvm-tblgen \
+-DCLANG_TABLEGEN=$BUILD/tblgen-$LLVM_VER/bin/clang-tblgen \
 -DLLVM_VERSION_SUFFIX="" \
 -DLLVM_APPEND_VC_REV=OFF \
--DLLVM_ENABLE_PROJECTS="libunwind;libcxxabi;libcxx;compiler-rt;llvm;lld;clang" \
+-DLLVM_ENABLE_PROJECTS="llvm;lld;clang" \
 -DLLVM_ENABLE_LLD=ON \
--DLLVM_TARGETS_TO_BUILD="all" \
+-DLLVM_TARGETS_TO_BUILD="X86" \
 -DLLVM_INSTALL_BINUTILS_SYMLINKS=ON \
 -DLLVM_INSTALL_CCTOOLS_SYMLINKS=ON \
 -DLLVM_INCLUDE_EXAMPLES=OFF \
@@ -87,9 +91,14 @@ cmake -G Ninja $SOURCES/llvm-$LLVM_VER/llvm \
 -DCOMPILER_RT_BUILD_MEMPROF=OFF \
 -DCOMPILER_RT_INCLUDE_TESTS=OFF \
 -DCOMPILER_RT_BUILD_LIBFUZZER=OFF \
--DENABLE_EXPERIMENTAL_NEW_PASS_MANAGER=TRUE
+-DENABLE_EXPERIMENTAL_NEW_PASS_MANAGER=TRUE \
+-DHAVE_LIBXAR=OFF
 
 
 $NINJA
 
+DESTDIR=$CHROOT $NINJA install
+
 cd $REPO_ROOT
+
+touch .boot-llvm
