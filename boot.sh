@@ -15,4 +15,6 @@ mkdir -p $BUILD
 ./boot-libcxx.sh
 ./boot-clang.sh
 
-./sanity.sh
+./sanity.sh || exit 1
+
+./boot-llvm.sh

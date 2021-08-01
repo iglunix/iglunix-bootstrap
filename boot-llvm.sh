@@ -7,7 +7,8 @@ mkdir -p $BUILD/llvm-$LLVM_VER
 
 cd $BUILD/llvm-$LLVM_VER
 
-C_CXX_FLAGS="--unwindlib=libunwind --stdlib=libc++ --rtlib=compiler-rt -nostdinc -I$CHROOT/usr/include/c++/v1 -I$CHROOT/usr/include/ -I$CHROOT/usr/lib/clang/12.0.1/include"
+C_CXX_FLAGS="--unwindlib=libunwind -stdlib=libc++ --rtlib=compiler-rt -nostdinc -nostdinc++ -I$CHROOT/usr/include/c++/v1 -I$CHROOT/usr/include/ -I$CHROOT/usr/lib/clang/12.0.1/include"
+C_C_FLAGS="--unwindlib=libunwind -stdlib=libc++ --rtlib=compiler-rt -nostdinc -nostdinc++ -I$CHROOT/usr/include/ -I$CHROOT/usr/lib/clang/12.0.1/include"
 
 cmake -G Ninja $SOURCES/llvm-$LLVM_VER/llvm \
 -DCMAKE_CROSSCOMPILING=True \
@@ -19,7 +20,7 @@ cmake -G Ninja $SOURCES/llvm-$LLVM_VER/llvm \
 -DCMAKE_INSTALL_PREFIX=/usr \
 -DCMAKE_BUILD_TYPE=Release \
 -DCMAKE_CXX_FLAGS_INIT="$C_CXX_FLAGS" \
--DCMAKE_C_FLAGS_INIT="$C_CXX_FLAGS" \
+-DCMAKE_C_FLAGS_INIT="$C_C_FLAGS" \
 -DLLVM_VERSION_SUFFIX="" \
 -DLLVM_APPEND_VC_REV=OFF \
 -DLLVM_ENABLE_PROJECTS="libunwind;libcxxabi;libcxx;compiler-rt;llvm;lld;clang" \
