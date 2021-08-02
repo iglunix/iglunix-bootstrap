@@ -36,6 +36,7 @@ jobs:
           pushd /usr/lib
           sudo ln -sr /usr/lib/llvm-12/lib/libc++.so.1 libc++.so
           sudo ln -sr /usr/lib/llvm-12/lib/libc++abi.so.1 libc++abi.so
+          ls -l libc++*
           popd
 
       # Runs a single command using the runners shell
