@@ -37,6 +37,7 @@ jobs:
           sudo ln -sr /usr/lib/llvm-12/lib/libc++.so.1 libc++.so
           sudo ln -sr /usr/lib/llvm-12/lib/libc++abi.so.1 libc++abi.so
           ls -l libc++*
+          ls -l /usr/lib/llvm-12/lib
           popd
 
       # Runs a single command using the runners shell
