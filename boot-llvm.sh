@@ -12,7 +12,7 @@ cd $BUILD/llvm-$LLVM_VER
 C_CXX_FLAGS="--unwindlib=libunwind -stdlib=libc++ --rtlib=compiler-rt -nostdinc++ -isystem $CHROOT/usr/include/c++/v1 -fPIC -v"
 C_C_FLAGS="--unwindlib=libunwind -stdlib=libc++ --rtlib=compiler-rt -fPIC -v"
 
-cmake -G Ninja $SOURCES/llvm-$LLVM_VER/llvm \
+cmake -G Ninja -Wno-dev $SOURCES/llvm-$LLVM_VER/llvm \
 -DCMAKE_CROSSCOMPILING=True \
 -DCMAKE_C_COMPILER_TARGET=$ARCH-unknown-linux-musl \
 -DCMAKE_C_COMPILER=/usr/bin/clang \

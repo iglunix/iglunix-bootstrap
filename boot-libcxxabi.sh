@@ -7,7 +7,7 @@ mkdir -p $BUILD/libcxxabi-$LLVM_VER
 
 cd $BUILD/libcxxabi-$LLVM_VER
 
-cmake -G Ninja $SOURCES/llvm-$LLVM_VER/libcxxabi \
+cmake -G Ninja -Wno-dev $SOURCES/llvm-$LLVM_VER/libcxxabi \
 -DCMAKE_C_COMPILER=clang \
 -DCMAKE_C_FLAGS_INIT='--rtlib=compiler-rt' \
 -DCMAKE_CXX_COMPILER=clang++ \

@@ -7,7 +7,7 @@ mkdir -p $BUILD/libunwind-$LLVM_VER
 
 cd $BUILD/libunwind-$LLVM_VER
 
-cmake -G Ninja $SOURCES/llvm-$LLVM_VER/libunwind \
+cmake -G Ninja -Wno-dev $SOURCES/llvm-$LLVM_VER/libunwind \
 -DCMAKE_C_COMPILER=clang \
 -DCMAKE_C_FLAGS_INIT='--rtlib=compiler-rt -stdlib=libc++' \
 -DCMAKE_CXX_COMPILER=clang++ \

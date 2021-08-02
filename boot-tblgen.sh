@@ -7,7 +7,7 @@ stat $REPO_ROOT/.boot-tblgen >/dev/null 2>/dev/null \
 mkdir -p $BUILD/tblgen-$LLVM_VER
 cd $BUILD/tblgen-$LLVM_VER
 
-cmake -G Ninja $SOURCES/llvm-$LLVM_VER/llvm \
+cmake -G Ninja -Wno-dev $SOURCES/llvm-$LLVM_VER/llvm \
 -DLLVM_ENABLE_PROJECTS="llvm;clang"
 
 samu llvm-tblgen clang-tblgen
