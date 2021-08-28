@@ -1,5 +1,8 @@
 # Iglunix Bootstrap Scripts
-Theses scripts bootstrap Iglunix from a GNU/Linux host.
+Theses scripts bootstrap an LLVM/Musl toolchain from a GNU/Linux host primarily
+for future use in
+[iglunix-autobuild](https://github.com/iglunix/iglunix-autobuild) which aims to
+build an Iglunix disk image from a GNU/Linux host.
 
 You will need LLVM, Clang, libc++, libc++abi, etc installed
 on your host machine as these scripts don't do the first step
