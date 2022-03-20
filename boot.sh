@@ -37,3 +37,5 @@ mkdir -p "$SYSROOT"
 ./5-libunwind.sh
 
 ./6-libcxx.sh
+
+./7-sanity.sh
