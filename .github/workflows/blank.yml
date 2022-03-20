@@ -29,16 +29,9 @@ jobs:
         run: |
           sudo apt install ninja-build
           wget https://apt.llvm.org/llvm.sh
+          sed -e 's/samu/ninja/g' -i *.sh
           chmod +x llvm.sh
-          sudo ./llvm.sh 12
-          sudo apt-get install libc++-12-dev libc++abi-12-dev
-          sed -i 's/samu/ninja/g' cfg.sh
-          pushd /usr/lib
-          sudo ln -sr /usr/lib/llvm-12/lib/libc++.so.1 libc++.so
-          sudo ln -sr /usr/lib/llvm-12/lib/libc++abi.so.1 libc++abi.so
-          ls -l libc++*
-          ls -l /usr/lib/llvm-12/lib
-          popd
+          sudo ./llvm.sh 13
 
       # Runs a single command using the runners shell
       - name: Run the bootstrap script

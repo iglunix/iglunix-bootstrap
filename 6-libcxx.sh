@@ -1,0 +1,25 @@
+#!/bin/sh -e
+[ -f "$REPO_ROOT/.libcxx" ] && exit 0
+
+cd "$BUILD"
+mkdir -p libcxx
+cd libcxx
+
+cmake -G Ninja "$SOURCES/llvm-$LLVM_VER/runtimes" \
+-DLLVM_ENABLE_RUNTIMES="libcxx;libcxxabi" \
+-DLIBCXXABI_USE_LLVM_UNWINDER=YES \
+-DLIBCXX_HAS_MUSL_LIBC=ON \
+-DCMAKE_C_COMPILER=clang \
+-DCMAKE_CXX_COMPILER=clang++ \
+-DCMAKE_C_COMPILER_TARGET=$TARGET \
+-DCMAKE_CXX_COMPILER_TARGET=$TARGET \
+-DCMAKE_C_FLAGS="$CFLAGS" \
+-DCMAKE_CXX_FLAGS="$CXXFLAGS" \
+-DCMAKE_SYSROOT=$SYSROOT \
+-DCMAKE_INSTALL_PREFIX=$SYSROOT \
+-DCMAKE_CXX_COMPILER_WORKS=1
+
+samu
+samu install
+
+touch $REPO_ROOT/.libcxx

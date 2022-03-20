@@ -4,3 +4,5 @@ build
 sources
 chroot
 sanity
+sysroot
+src
