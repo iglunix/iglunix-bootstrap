@@ -9,6 +9,12 @@ export SOURCES="$REPO_ROOT/src"
 export BUILD="$REPO_ROOT/build"
 export SYSROOT="$REPO_ROOT/sysroot"
 
+export COMMON_FLAGS="-O2 -pipe --sysroot=$SYSROOT"
+
+export CFLAGS="${COMMON_FLAGS}"
+export CXXFLAGS="${COMMON_FLAGS} -stdlib=libc++"
+export LDFLAGS="-fuse-ld=lld -rtlib=compiler-rt"
+
 [ -z "$MAKE" ] && export MAKE=make
 
 mkdir -p "$SOURCES"
