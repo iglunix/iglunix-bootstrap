@@ -15,6 +15,9 @@ export CFLAGS="${COMMON_FLAGS}"
 export CXXFLAGS="${COMMON_FLAGS} -stdlib=libc++"
 export LDFLAGS="-fuse-ld=lld -rtlib=compiler-rt"
 
+export CC=clang
+export CXX=clang++
+
 [ -z "$MAKE" ] && export MAKE=make
 
 mkdir -p "$SOURCES"
