@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-function insane() {
+insane() {
 	echo "Insane!"
 	exit 1
 }
