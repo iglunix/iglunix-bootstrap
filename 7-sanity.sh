@@ -1,6 +1,7 @@
 #!/bin/sh -e
 
 insane() {
+	[ -f sanity ] && objdump -p sanity
 	echo "Insane!"
 	exit 1
 }
