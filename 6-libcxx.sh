@@ -6,7 +6,7 @@ mkdir -p libcxx
 cd libcxx
 
 cmake -G Ninja "$SOURCES/llvm-$LLVM_VER/runtimes" \
--DLLVM_ENABLE_RUNTIMES="libcxx;libcxxabi" \
+-DLLVM_ENABLE_RUNTIMES="libcxx;libcxxabi;libunwind" \
 -DLIBCXXABI_USE_LLVM_UNWINDER=YES \
 -DLIBCXX_HAS_ATOMIC_LIB=OFF \
 -DLIBCXX_HAS_MUSL_LIBC=ON \

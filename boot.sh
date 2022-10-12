@@ -1,8 +1,8 @@
 #!/bin/sh -e
 
-export LLVM_VER=13.0.1
-export MUSL_VER=1.2.2
-export KERN_VER=5.16.16
+export LLVM_VER=15.0.2
+export MUSL_VER=1.2.3
+export KERN_VER=5.19.14
 
 export REPO_ROOT=$(realpath $(dirname $0))
 export SOURCES="$REPO_ROOT/src"
