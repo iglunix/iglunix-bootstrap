@@ -9,6 +9,7 @@ fi
 export LLVM_VER=16.0.0
 export MUSL_VER=1.2.3
 export KERN_VER=6.2.7
+export MKSH_VER=R59c
 
 export TARGET=$ARCH-linux-musl
 
@@ -40,6 +41,10 @@ mkdir -p "$SOURCES"
 mkdir -p "$BUILD"
 mkdir -p "$SYSROOT"
 
+mkdir -p "$SYSROOT/usr"
+mkdir -p "$SYSROOT/bin"
+mkdir -p "$SYSROOT/lib"
+
 ./0-fetch.sh
 
 ./1-linux-headers.sh
@@ -63,3 +68,8 @@ sudo cp $SYSROOT/usr/lib/linux/* $(clang -print-resource-dir)/lib/linux
 ./6-libcxx.sh
 
 ./7-sanity.sh
+
+export CC=$ARCH-iglunix-linux-musl-cc.sh
+export CXX=$ARCH-iglunix-linux-musl-c++.sh
+
+./8-mksh.sh
