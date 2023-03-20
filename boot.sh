@@ -43,13 +43,15 @@ mkdir -p "$SYSROOT"
 
 ./3-compiler-rt.sh
 
+sudo cp $SYSROOT/lib/linux/* $(clang -print-resource-dir)/lib/linux
+
 ./4-musl.sh
 
-export COMMON_FLAGS="-O2 -pipe --sysroot=$SYSROOT -unwindlib=libunwind -v"
+# export COMMON_FLAGS="-O2 -pipe --sysroot=$SYSROOT -unwindlib=libunwind -v"
 
-export CFLAGS="${COMMON_FLAGS}"
-export CXXFLAGS="${COMMON_FLAGS} -stdlib=libc++"
-export LDFLAGS="-fuse-ld=lld -rtlib=compiler-rt -resource-dir=$SYSROOT/"
+# export CFLAGS="${COMMON_FLAGS}"
+# export CXXFLAGS="${COMMON_FLAGS} -stdlib=libc++"
+# export LDFLAGS="-fuse-ld=lld -rtlib=compiler-rt -resource-dir=$SYSROOT"
 
 ./5-libunwind.sh
 
