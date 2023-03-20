@@ -19,6 +19,11 @@ export SYSROOT="$REPO_ROOT/sysroot"
 
 export COMMON_FLAGS="-O2 -pipe --sysroot=$SYSROOT -unwindlib=libunwind"
 
+# because ubuntu uses old llvm (14) we need to pass -mno-relax still
+if [ "$ARCH" = "riscv64" ]; then
+	export COMMON_FLAGS="$COMMON_FLAGS -mno-relax"
+fi
+
 export CFLAGS="${COMMON_FLAGS}"
 export CXXFLAGS="${COMMON_FLAGS} -stdlib=libc++"
 export LDFLAGS="-fuse-ld=lld -rtlib=compiler-rt"
