@@ -27,13 +27,14 @@ jobs:
       
       - name: Install deps
         run: |
-          # Note: this should be updated whenever we change ubuntu versions
-          sudo apt remove llvm-11 clang-11
           sudo apt install ninja-build
           wget https://apt.llvm.org/llvm.sh
           sed -e 's/samu/ninja/g' -i *.sh
           chmod +x llvm.sh
           sudo ./llvm.sh 16
+          # Note: this should be updated whenever we change ubuntu versions
+          # This really is just ubuntu being painful
+          sudo apt remove llvm-11 clang-11
           /usr/bin/clang --version
 
       # Runs a single command using the runners shell
