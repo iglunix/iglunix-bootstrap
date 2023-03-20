@@ -5,7 +5,7 @@ cd $SOURCES/musl-$MUSL_VER
 
 $MAKE distclean
 
-CFLAGS="$CFLAGS --target=$TARGET" ./configure --prefix=/ --target=$TARGET LIBCC=$SYSROOT/lib/linux/libclang_rt.builtins-$ARCH.a
+CFLAGS="$CFLAGS --target=$TARGET" ./configure --prefix=/usr --disable-wrapper --target=$TARGET LIBCC=$SYSROOT/usr/lib/linux/libclang_rt.builtins-$ARCH.a
 
 CFLAGS="$CFLAGS --target=$TARGET" $MAKE
 CFLAGS="$CFLAGS --target=$TARGET" DESTDIR=$SYSROOT $MAKE install

@@ -3,8 +3,8 @@
 
 cd $SOURCES/musl-$MUSL_VER
 
-./configure --prefix=$SYSROOT
+./configure --prefix=/usr
 
-$MAKE install-headers
+$MAKE DESTDIR=$SYSROOT install-headers
 
 touch $REPO_ROOT/.musl-headers

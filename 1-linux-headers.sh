@@ -24,6 +24,7 @@ $MAKE headers CC=cc HOSTCC=cc YACC=yacc ARCH=$LARCH
 
 find usr -name '.*' -exec rm {} \;
 rm -f usr/include/Makefile
-cp -r usr/include $SYSROOT
+install -d $SYSROOT/usr
+cp -r usr/include $SYSROOT/usr
 
 touch "$REPO_ROOT/.linux-headers"
