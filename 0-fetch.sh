@@ -15,7 +15,7 @@ tar -xf $SOURCES/linux-$KERN_VER.tar.xz -C $SOURCES
 tar -xf $SOURCES/musl-$MUSL_VER.tar.gz -C $SOURCES
 tar -xf $SOURCES/llvm-$LLVM_VER.tar.xz -C $SOURCES
 mv $SOURCES/llvm-project-$LLVM_VER.src $SOURCES/llvm-$LLVM_VER
-tar -xf $SOURCES/llvm-$LLVM_VER.tar.xz -C $SOURCES
+sed -i 's|set(LLVM_USE_HOST_TOOLS ON)|set(LLVM_USE_HOST_TOOLS OFF)|g' $SOURCES/llvm-$LLVM_VER/llvm/CMakeLists.txt
 tar -xf $SOURCES/toybox-$TOYBOX_VER.tar.gz -C $SOURCES
 
 tar -xf $SOURCES/mksh-$MKSH_VER.tgz -C $SOURCES
