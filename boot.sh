@@ -45,6 +45,12 @@ mkdir -p "$SYSROOT"
 
 ./4-musl.sh
 
+export COMMON_FLAGS="-O2 -pipe --sysroot=$SYSROOT -unwindlib=libunwind"
+
+export CFLAGS="${COMMON_FLAGS}"
+export CXXFLAGS="${COMMON_FLAGS} -stdlib=libc++"
+export LDFLAGS="-fuse-ld=lld -rtlib=compiler-rt -resource-dir=$SYSROOT/"
+
 ./5-libunwind.sh
 
 ./6-libcxx.sh
