@@ -27,7 +27,7 @@ jobs:
       
       - name: Install deps
         run: |
-          sudo apt install ninja-build
+          sudo apt install ninja-build qemu-user
           wget https://apt.llvm.org/llvm.sh
           sed -e 's/samu/ninja/g' -i *.sh
           chmod +x llvm.sh
