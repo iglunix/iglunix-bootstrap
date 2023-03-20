@@ -10,6 +10,9 @@ cmake -G Ninja "$SOURCES/llvm-$LLVM_VER/llvm" \
 -DCMAKE_CXX_COMPILER=$CXX \
 -DCMAKE_INSTALL_PREFIX=/usr \
 -DCMAKE_BUILD_TYPE=Release \
+-DLLVM_TABLEGEN=$BUILD/tblgen/bin/llvm-tblgen \
+-DLLVM_TABLEGEN_EXE=$BUILD/tblgen/bin/llvm-tblgen \
+-DCLANG_TABLEGEN=$BUILD/tblgen/bin/clang-tblgen \
 -DLLVM_VERSION_SUFFIX="" \
 -DLLVM_APPEND_VC_REV=OFF \
 -DLLVM_ENABLE_PROJECTS="llvm;lld;clang" \
@@ -84,8 +87,6 @@ cmake -G Ninja "$SOURCES/llvm-$LLVM_VER/llvm" \
 -DCMAKE_C_COMPILER_WORKS=ON \
 -DCMAKE_CXX_COMPILER_WORKS=ON \
 -DCMAKE_SYSTEM_NAME=Linux \
--DLLVM_TABLEGEN=$BUILD/tblgen/bin/llvm-tblgen \
--DCLANG_TABLEGEN=$BUILD/tblgen/bin/clang-tblgen \
 -DLLVM_CONFIG_PATH=/usr/bin/llvm-config \
 -DCMAKE_FIND_ROOT_PATH_MODE_PROGRAM=NEVER \
 -DCMAKE_FIND_ROOT_PATH_MODE_LIBRARY=ONLY \
