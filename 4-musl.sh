@@ -11,8 +11,8 @@ CFLAGS="$CFLAGS --target=$TARGET" $MAKE
 CFLAGS="$CFLAGS --target=$TARGET" DESTDIR=$SYSROOT $MAKE install
 
 mv $SYSROOT/usr/lib/libc.so $SYSROOT/lib/ld-musl-$ARCH.so.1
-ln -s ../../lib/ld-musl-riscv64.so.1 $SYSROOT/usr/lib/libc.so
-ln -s ../../lib/ld-musl-riscv64.so.1 $SYSROOT/usr/bin/ldd
+ln -s ../../lib/ld-musl-$ARCH.so.1 $SYSROOT/usr/lib/libc.so
+ln -s ../../lib/ld-musl-$ARCH.so.1 $SYSROOT/usr/bin/ldd
 
 
 touch $REPO_ROOT/.musl
