@@ -5,7 +5,7 @@ cd "$BUILD"
 mkdir -p llvm
 cd llvm
 
-cmake -G Ninja -Wno-dev \
+cmake -G Ninja "$SOURCES/llvm-$LLVM_VER/llvm" \
 -DCMAKE_C_COMPILER=$CC \
 -DCMAKE_CXX_COMPILER=$CXX \
 -DCMAKE_INSTALL_PREFIX=/usr \
