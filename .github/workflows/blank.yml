@@ -30,8 +30,8 @@ jobs:
           sudo apt install ninja-build
           wget https://apt.llvm.org/llvm.sh
           sed -e 's/samu/ninja/g' -i *.sh
-          chmod +x llvm.sh
-          sudo ./llvm.sh 14
+          #chmod +x llvm.sh
+          #sudo ./llvm.sh 14
           /usr/bin/clang --version
 
       # Runs a single command using the runners shell
