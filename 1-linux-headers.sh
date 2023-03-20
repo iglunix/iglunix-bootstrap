@@ -9,6 +9,9 @@ case $ARCH in
 	"aarch64")
     		LARCH=arm64
     		;;
+	"riscv64")
+    		LARCH=riscv
+    		;;
 	*)
     		LARCH=$ARCH
     		;;
