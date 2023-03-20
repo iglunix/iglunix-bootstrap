@@ -5,11 +5,19 @@ echo
 echo '>>> linux-headers'
 echo
 
+case $ARCH in
+	"aarch64")
+    		LARCH=arm64
+    		;;
+	*)
+    		LARCH=$ARCH
+    		;;
+esac
 
 cd $SOURCES/linux-$KERN_VER
 
-$MAKE defconfig CC=cc HOSTCC=cc YACC=yacc
-$MAKE headers CC=cc HOSTCC=cc YACC=yacc
+$MAKE defconfig CC=cc HOSTCC=cc YACC=yacc ARCH=$LARCH
+$MAKE headers CC=cc HOSTCC=cc YACC=yacc ARCH=$LARCH
 
 find usr -name '.*' -exec rm {} \;
 rm -f usr/include/Makefile
