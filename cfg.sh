@@ -1,4 +1,5 @@
 export ARCH=$(uname -m)
+export TARGET=$ARCH-linux-musl
 
 export REPO_ROOT=$(pwd)
 export CHROOT=$REPO_ROOT/chroot
