@@ -41,7 +41,8 @@ mkdir -p "$SOURCES"
 mkdir -p "$BUILD"
 mkdir -p "$SYSROOT"
 
-mkdir -p "$SYSROOT/usr"
+mkdir -p "$SYSROOT/usr/bin"
+mkdir -p "$SYSROOT/usr/lib"
 mkdir -p "$SYSROOT/bin"
 mkdir -p "$SYSROOT/lib"
 
