@@ -3,7 +3,7 @@
 
 cd $SOURCES/musl-$MUSL_VER
 
-./configure --prefix=/usr
+./configure --prefix=/usr --target=$TARGET
 
 $MAKE DESTDIR=$SYSROOT install-headers
 
