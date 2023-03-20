@@ -12,7 +12,7 @@ export SOURCES="$REPO_ROOT/src"
 export BUILD="$REPO_ROOT/build"
 export SYSROOT="$REPO_ROOT/sysroot"
 
-export COMMON_FLAGS="-O2 -pipe --sysroot=$SYSROOT -v"
+export COMMON_FLAGS="-O2 -pipe --sysroot=$SYSROOT -unwindlib=libunwind -v"
 
 export CFLAGS="${COMMON_FLAGS}"
 export CXXFLAGS="${COMMON_FLAGS} -stdlib=libc++"
