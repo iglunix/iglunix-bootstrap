@@ -77,3 +77,7 @@ export CXX=$(pwd)/$ARCH-iglunix-linux-musl-c++.sh
 ./8-mksh.sh
 
 ./9-toybox.sh
+
+./10-tblgen.sh
+
+./11-llvm.sh
