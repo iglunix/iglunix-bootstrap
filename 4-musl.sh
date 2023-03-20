@@ -5,9 +5,9 @@ cd $SOURCES/musl-$MUSL_VER
 
 $MAKE distclean
 
-./configure --prefix=/ --target=$TARGET LIBCC=$SYSROOT/lib/linux/libclang_rt.builtins-$ARCH.a
+CFLAGS="$CFLAGS --target=$TARGET" ./configure --prefix=/ --target=$TARGET LIBCC=$SYSROOT/lib/linux/libclang_rt.builtins-$ARCH.a
 
-$MAKE
-DESTDIR=$SYSROOT $MAKE install
+CFLAGS="$CFLAGS --target=$TARGET" $MAKE
+CFLAGS="$CFLAGS --target=$TARGET" DESTDIR=$SYSROOT $MAKE install
 
 touch $REPO_ROOT/.musl
