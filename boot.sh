@@ -10,6 +10,7 @@ export LLVM_VER=16.0.0
 export MUSL_VER=1.2.3
 export KERN_VER=6.2.7
 export MKSH_VER=R59c
+export TOYBOX_VER=0.8.9
 
 export TARGET=$ARCH-linux-musl
 
@@ -74,3 +75,5 @@ export CC=$(pwd)/$ARCH-iglunix-linux-musl-cc.sh
 export CXX=$(pwd)/$ARCH-iglunix-linux-musl-c++.sh
 
 ./8-mksh.sh
+
+./9-toybox.sh
