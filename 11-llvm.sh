@@ -85,7 +85,7 @@ cmake -G Ninja "$SOURCES/llvm-$LLVM_VER/llvm" \
 -DCMAKE_CXX_COMPILER_WORKS=ON \
 -DCMAKE_SYSTEM_NAME=Linux \
 -DLLVM_TABLEGEN=$BUILD/tblgen/bin/llvm-tblgen \
--DCLANG_TABLEGEN=$BUILD?tblgen/bin/clang-tblgen \
+-DCLANG_TABLEGEN=$BUILD/tblgen/bin/clang-tblgen \
 -DLLVM_CONFIG_PATH=/usr/bin/llvm-config \
 -DCMAKE_FIND_ROOT_PATH_MODE_PROGRAM=NEVER \
 -DCMAKE_FIND_ROOT_PATH_MODE_LIBRARY=ONLY \
