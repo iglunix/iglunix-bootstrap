@@ -5,7 +5,7 @@ cd $SOURCES/musl-$MUSL_VER
 
 $MAKE distclean
 
-./configure --prefix=/ LIBCC=$SYSROOT/lib/linux/libclang_rt.builtins-x86_64.a
+./configure --prefix=/ --target=$TARGET LIBCC=$SYSROOT/lib/linux/libclang_rt.builtins-$ARCH.a
 
 $MAKE
 DESTDIR=$SYSROOT $MAKE install
