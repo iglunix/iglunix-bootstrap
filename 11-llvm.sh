@@ -13,6 +13,8 @@ cmake -G Ninja "$SOURCES/llvm-$LLVM_VER/llvm" \
 -DLLVM_TABLEGEN=$BUILD/tblgen/bin/llvm-tblgen \
 -DLLVM_TABLEGEN_EXE=$BUILD/tblgen/bin/llvm-tblgen \
 -DCLANG_TABLEGEN=$BUILD/tblgen/bin/clang-tblgen \
+-DLLVM_NATIVE_TOOL_DIR=$BUILD/tblgen/bin \
+-DLLVM_USE_HOST_TOOLS=ON \
 -DLLVM_VERSION_SUFFIX="" \
 -DLLVM_APPEND_VC_REV=OFF \
 -DLLVM_ENABLE_PROJECTS="llvm;lld;clang" \
