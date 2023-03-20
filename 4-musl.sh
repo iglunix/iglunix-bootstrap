@@ -10,4 +10,7 @@ CFLAGS="$CFLAGS --target=$TARGET" ./configure --prefix=/usr --disable-wrapper --
 CFLAGS="$CFLAGS --target=$TARGET" $MAKE
 CFLAGS="$CFLAGS --target=$TARGET" DESTDIR=$SYSROOT $MAKE install
 
+mv $SYSROOT/usr/lib/libc.so $SYSROOT/lib/ld-musl-riscv64.so.1
+ln -s ../../lib/ld-musl-riscv64.so.1 $SYSROOT/usr/lib/libc.so
+
 touch $REPO_ROOT/.musl
