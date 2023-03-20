@@ -18,7 +18,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -31,10 +31,7 @@ jobs:
           wget https://apt.llvm.org/llvm.sh
           sed -e 's/samu/ninja/g' -i *.sh
           chmod +x llvm.sh
-          sudo ./llvm.sh 16
-          # Note: this should be updated whenever we change ubuntu versions
-          # This really is just ubuntu being painful
-          sudo apt remove llvm-11 clang-11
+          sudo ./llvm.sh 14
           /usr/bin/clang --version
 
       # Runs a single command using the runners shell
