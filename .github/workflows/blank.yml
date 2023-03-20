@@ -44,3 +44,9 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run the bootstrap script
         run: ./boot.sh ${{ matrix.arch }}
+
+      - name: Upload sysroot
+        uses: actions/upload-artifact@v3
+        with:
+          name: sysroot-${{ matrix.arch }}
+          path: sysroot/
