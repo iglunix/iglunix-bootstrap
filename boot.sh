@@ -78,6 +78,6 @@ export CXX=$(pwd)/$ARCH-iglunix-linux-musl-c++.sh
 
 ./9-toybox.sh
 
-./10-tblgen.sh
+env -u CFLAGS -u CXXFLAGS -u LDFLAGS ./10-tblgen.sh
 
 ./11-llvm.sh
