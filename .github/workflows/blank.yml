@@ -17,6 +17,10 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
+    strategy:
+      matrix:
+        arch: [ x86_64, aarch64 ]
+
     # The type of runner that the job will run on
     runs-on: ubuntu-22.04
 
@@ -37,4 +41,4 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run the bootstrap script
-        run: ./boot.sh
+        run: ./boot.sh ${{ matrix.arch }}

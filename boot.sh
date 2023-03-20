@@ -1,10 +1,15 @@
 #!/bin/sh -e
 
+if [ -z "$1" ]; then
+	export ARCH=$(uname -m)
+else
+	export ARCH=$1
+fi
+
 export LLVM_VER=16.0.0
 export MUSL_VER=1.2.3
 export KERN_VER=6.2.7
 
-export ARCH=$(uname -m)
 export TARGET=$ARCH-linux-musl
 
 export REPO_ROOT=$(realpath $(dirname $0))

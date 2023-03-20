@@ -6,7 +6,7 @@ insane() {
 	exit 1
 }
 
-./x86_64-iglunix-linux-musl-c++.sh \
+./$ARCH-iglunix-linux-musl-c++.sh \
 sanity.cpp -o sanity || insane
 
 LD_LIBRARY_PATH=$(pwd)/sysroot/lib qemu-$ARCH ./sysroot/lib/libc.so ./sanity || insane
