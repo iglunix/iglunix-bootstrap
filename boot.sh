@@ -69,7 +69,7 @@ sudo cp $SYSROOT/usr/lib/linux/* $(clang -print-resource-dir)/lib/linux
 
 ./7-sanity.sh
 
-export CC=$ARCH-iglunix-linux-musl-cc.sh
-export CXX=$ARCH-iglunix-linux-musl-c++.sh
+export CC=$(pwd)/$ARCH-iglunix-linux-musl-cc.sh
+export CXX=$(pwd)/$ARCH-iglunix-linux-musl-c++.sh
 
 ./8-mksh.sh
