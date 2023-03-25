@@ -1,6 +1,8 @@
 #!/bin/sh -e
 [ -f "$REPO_ROOT/.toybox" ] && exit 0
 
+export TARGET=""
+
 cd $SOURCES/toybox-$TOYBOX_VER
 
 $MAKE defconfig
