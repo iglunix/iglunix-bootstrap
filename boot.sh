@@ -55,7 +55,7 @@ mkdir -p "$SYSROOT/lib"
 
 ./3-compiler-rt.sh
 
-sudo cp $SYSROOT/usr/lib/linux/* $(clang -print-resource-dir)/lib/linux
+sudo cp $SYSROOT/usr/lib/clang/16/lib/linux/* $(clang -print-resource-dir)/lib/linux
 
 ./4-musl.sh
 
