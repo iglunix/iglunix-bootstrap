@@ -5,7 +5,14 @@ cd "$BUILD"
 mkdir -p llvm
 cd llvm
 
-cmake -G Ninja "$SOURCES/llvm-$LLVM_VER/llvm" --verbose \
+set +e
+
+ls -l $BUILD/tblgen/bin/
+file $BUILD/tblgen/bin/*
+
+set -e
+
+cmake -G Ninja "$SOURCES/llvm-$LLVM_VER/llvm" \
 -DCMAKE_C_COMPILER=$CC \
 -DCMAKE_CXX_COMPILER=$CXX \
 -DCMAKE_INSTALL_PREFIX=/usr \
