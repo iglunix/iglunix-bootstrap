@@ -5,13 +5,12 @@ cd "$BUILD"
 mkdir -p llvm
 cd llvm
 
-cmake -G Ninja "$SOURCES/llvm-$LLVM_VER/llvm" \
+cmake -G Ninja "$SOURCES/llvm-$LLVM_VER/llvm" --verbose \
 -DCMAKE_C_COMPILER=$CC \
 -DCMAKE_CXX_COMPILER=$CXX \
 -DCMAKE_INSTALL_PREFIX=/usr \
 -DCMAKE_BUILD_TYPE=Release \
 -DLLVM_TABLEGEN=$BUILD/tblgen/bin/llvm-tblgen \
--DLLVM_TABLEGEN_EXE=$BUILD/tblgen/bin/llvm-tblgen \
 -DCLANG_TABLEGEN=$BUILD/tblgen/bin/clang-tblgen \
 -DLLVM_NATIVE_TOOL_DIR=$BUILD/tblgen/bin \
 -DLLVM_USE_HOST_TOOLS=OFF \
