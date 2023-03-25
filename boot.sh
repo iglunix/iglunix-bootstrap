@@ -47,17 +47,17 @@ mkdir -p "$SYSROOT/usr/lib"
 mkdir -p "$SYSROOT/bin"
 mkdir -p "$SYSROOT/lib"
 
-./0-fetch.sh
+./00-fetch.sh
 
-./1-linux-headers.sh
+./01-linux-headers.sh
 
-./2-musl-headers.sh
+./02-musl-headers.sh
 
-./3-compiler-rt.sh
+./03-compiler-rt.sh
 
 sudo cp $SYSROOT/usr/lib/clang/16/lib/linux/* $(clang -print-resource-dir)/lib/linux
 
-./4-musl.sh
+./04-musl.sh
 
 # export COMMON_FLAGS="-O2 -pipe --sysroot=$SYSROOT -unwindlib=libunwind -v"
 
@@ -65,18 +65,18 @@ sudo cp $SYSROOT/usr/lib/clang/16/lib/linux/* $(clang -print-resource-dir)/lib/l
 # export CXXFLAGS="${COMMON_FLAGS} -stdlib=libc++"
 # export LDFLAGS="-fuse-ld=lld -rtlib=compiler-rt -resource-dir=$SYSROOT"
 
-./5-libunwind.sh
+./05-libunwind.sh
 
-./6-libcxx.sh
+./06-libcxx.sh
 
-./7-sanity.sh
+./07-sanity.sh
 
 export CC=$(pwd)/$ARCH-iglunix-linux-musl-cc.sh
 export CXX=$(pwd)/$ARCH-iglunix-linux-musl-c++.sh
 
-./8-mksh.sh
+./08-mksh.sh
 
-./9-toybox.sh
+./09-toybox.sh
 
 env -u CFLAGS -u CXXFLAGS -u LDFLAGS ./10-tblgen.sh
 
