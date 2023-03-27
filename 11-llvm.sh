@@ -108,4 +108,10 @@ samu
 
 DESTDIR=$SYSROOT samu install
 
+ln -s clang $SYSROOT/usr/bin/cc
+ln -s clang $SYSROOT/usr/bin/c89
+ln -s clang $SYSROOT/usr/bin/c99
+ln -s clang++ $SYSROOT/usr/bin/c++
+ln -s ld.lld $SYSROOT/usr/bin/ld
+
 touch $REPO_ROOT/.llvm
