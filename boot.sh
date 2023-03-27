@@ -10,6 +10,7 @@ export LLVM_VER=16.0.0
 export MUSL_VER=1.2.3
 export KERN_VER=6.2.7
 export MKSH_VER=R59c
+export BUSYBOX_VER=1.36.0
 export TOYBOX_VER=0.8.9
 
 export TARGET=$ARCH-linux-musl
@@ -76,8 +77,10 @@ export CXX=$(pwd)/$ARCH-iglunix-linux-musl-c++.sh
 
 ./08-mksh.sh
 
-./09-toybox.sh
+./09-busybox.sh
 
-env -u CFLAGS -u CXXFLAGS -u LDFLAGS ./10-tblgen.sh
+./10-toybox.sh
 
-./11-llvm.sh
+env -u CFLAGS -u CXXFLAGS -u LDFLAGS ./11-tblgen.sh
+
+./12-llvm.sh
