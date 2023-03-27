@@ -4,10 +4,9 @@
 export TARGET=""
 
 cd $SOURCES/busybox-$BUSYBOX_VER
-export LD=$CC
-$MAKE --trace CFLAGS=-O0 LDFLAGS= defconfig
-$MAKE --trace CFLAGS=-O0 LDFLAGS= -j1
-$MAKE --trace CFLAGS=-O0 LDFLAGS= install
+$MAKE --trace CC=$CC CFLAGS=-O0 LDFLAGS= defconfig
+$MAKE --trace CC=$CC CFLAGS=-O0 LDFLAGS= -j1
+$MAKE --trace CC=$CC CFLAGS=-O0 LDFLAGS= install
 
 false
 
