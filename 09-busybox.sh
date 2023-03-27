@@ -4,11 +4,10 @@
 export TARGET=""
 
 cd $SOURCES/busybox-$BUSYBOX_VER
-$MAKE --trace CC=$CC CFLAGS=-O0 LDFLAGS= defconfig
-$MAKE --trace CC=$CC CFLAGS=-O0 LDFLAGS= -j1
-$MAKE --trace CC=$CC CFLAGS=-O0 LDFLAGS= install
 
-false
+$MAKE CC=$CC CFLAGS=-O0 LDFLAGS= defconfig
+$MAKE CC=$CC CFLAGS=-O0 LDFLAGS= -j1
+$MAKE CC=$CC CFLAGS=-O0 LDFLAGS= install
 
 rm _install/linuxrc
 rm _install/bin/ln
