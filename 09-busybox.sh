@@ -4,7 +4,7 @@
 export TARGET=""
 
 cd $SOURCES/busybox-$BUSYBOX_VER
-
+export LD=$CC
 $MAKE CFLAGS=-O0 defconfig
 $MAKE CFLAGS=-O0 -j1
 $MAKE CFLAGS=-O0 install
