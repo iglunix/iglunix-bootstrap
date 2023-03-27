@@ -5,9 +5,9 @@ export TARGET=""
 
 cd $SOURCES/busybox-$BUSYBOX_VER
 export LD=$CC
-$MAKE CFLAGS=-O0 defconfig
-$MAKE CFLAGS=-O0 -j1
-$MAKE CFLAGS=-O0 install
+$MAKE CFLAGS=-O0 LDFLAGS= defconfig
+$MAKE CFLAGS=-O0 LDFLAGS= -j1
+$MAKE CFLAGS=-O0 LDFLAGS= install
 
 rm _install/linuxrc
 rm _install/bin/ln
