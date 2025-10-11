@@ -45,8 +45,11 @@ jobs:
       - name: Run the bootstrap script
         run: ./boot.sh ${{ matrix.arch }}
 
-     # - name: Upload sysroot
-     #   uses: alehechka/upload-tartifact@v1
-     #   with:
-     #     name: sysroot-${{ matrix.arch }}
-     #     path: sysroot/
+      - name: Create tarball
+        run: |
+          tar -cf sysroot-${{ matrix.arch }}.tar sysroot/
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sysroot-${{ matrix.arch }}
+          path: sysroot-${{ matrix.arch }}.tar
