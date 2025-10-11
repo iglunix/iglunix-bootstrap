@@ -6,9 +6,9 @@ else
 	export ARCH=$1
 fi
 
-export LLVM_VER=16.0.0
-export MUSL_VER=1.2.3
-export KERN_VER=6.2.7
+export LLVM_VER=21.1.3
+export MUSL_VER=1.2.5
+export KERN_VER=6.17.1
 export MKSH_VER=R59c
 export BUSYBOX_VER=1.36.0
 export TOYBOX_VER=0.8.9
